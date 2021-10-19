@@ -5,7 +5,7 @@
     },
     {
         "ParameterKey": "GitHubBranch",
-        "ParameterValue": "main"
+        "ParameterValue": "tree/main"
       },
       {
         "ParameterKey": "GitHubToken",
