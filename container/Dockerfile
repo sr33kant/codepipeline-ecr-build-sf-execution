@@ -23,8 +23,8 @@ RUN apt-get install -y python3-distutils --reinstall
 RUN python3.9 get-pip.py 
 RUN pip install numpy scipy scikit-learn pandas flask gevent gunicorn    
 #RUN pip install numpy scipy scikit-learn pandas flask gevent gunicorn && \
-        (cd /usr/local/lib/python3.9/dist-packages/scipy/.libs; rm *; ln ../../numpy/.libs/* .) && \
-        rm -rf /root/.cache
+        #(cd /usr/local/lib/python3.9/dist-packages/scipy/.libs; rm *; ln ../../numpy/.libs/* .) && \
+        #rm -rf /root/.cache
 
 # Set some environment variables. PYTHONUNBUFFERED keeps Python from buffering our standard
 # output stream, which means that logs can be delivered to the user quickly. PYTHONDONTWRITEBYTECODE
