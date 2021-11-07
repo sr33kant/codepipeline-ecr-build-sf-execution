@@ -7,7 +7,6 @@ FROM public.ecr.aws/lts/ubuntu:20.04
 
 RUN apt-get -y update && apt-get install -y --no-install-recommends \
          wget \
-         python \
          nginx \
          ca-certificates \
     && rm -rf /var/lib/apt/lists/*
@@ -17,9 +16,8 @@ RUN apt-get -y update && apt-get install -y --no-install-recommends \
 # linking them together. Likewise, pip leaves the install caches populated which uses
 # a significant amount of space. These optimizations save a fair amount of space in the
 # image, which reduces start up time.
-RUN add-apt-repository ppa:deadsnakes/ppa
-RUN apt-get install python3.7
-RUN wget https://bootstrap.pypa.io/get-pip.py && python3.7 get-pip.py && \
+RUN apt-get install python3
+RUN wget https://bootstrap.pypa.io/get-pip.py && python3 get-pip.py && \
     pip install numpy==1.16.2 scipy==1.2.1 scikit-learn==0.20.2 pandas flask gevent gunicorn && \
         (cd /usr/local/lib/python3.7/dist-packages/scipy/.libs; rm *; ln ../../numpy/.libs/* .) && \
         rm -rf /root/.cache
