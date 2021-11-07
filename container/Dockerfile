@@ -17,6 +17,7 @@ RUN apt-get -y update && apt-get install -y --no-install-recommends \
 # a significant amount of space. These optimizations save a fair amount of space in the
 # image, which reduces start up time.
 RUN apt-get update && apt-get install -y python3.9 python3.9-dev
+COPY . .
 #RUN wget https://bootstrap.pypa.io/get-pip.py && python3.9 get-pip.py && \
 RUN pip install numpy==1.16.2 scipy==1.2.1 scikit-learn==0.20.2 pandas flask gevent gunicorn && \
         (cd /usr/local/lib/python3.9/dist-packages/scipy/.libs; rm *; ln ../../numpy/.libs/* .) && \
