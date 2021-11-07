@@ -21,8 +21,8 @@ RUN apt-get update && apt-get install -y python3.9 python3.9-dev
 RUN wget https://bootstrap.pypa.io/get-pip.py 
 RUN apt-get install -y python3-distutils --reinstall
 RUN python3.9 get-pip.py 
-     
-RUN pip install numpy scipy scikit-learn pandas flask gevent gunicorn && \
+RUN pip install numpy scipy scikit-learn pandas flask gevent gunicorn    
+#RUN pip install numpy scipy scikit-learn pandas flask gevent gunicorn && \
         (cd /usr/local/lib/python3.9/dist-packages/scipy/.libs; rm *; ln ../../numpy/.libs/* .) && \
         rm -rf /root/.cache
 
