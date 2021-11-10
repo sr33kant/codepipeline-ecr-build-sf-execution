@@ -1,7 +1,7 @@
 #!/bin/sh
 
 image=$1
-
+#random test
 mkdir -p test_dir/model
 mkdir -p test_dir/output
 
